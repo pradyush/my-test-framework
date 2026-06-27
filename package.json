@@ -8,5 +8,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "@faker-js/faker": "^10.5.0",
+    "allure-commandline": "^2.43.0",
+    "codeceptjs": "^4.0.8",
+    "dotenv": "^17.4.2",
+    "playwright": "^1.61.1"
+  }
 }
