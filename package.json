@@ -4,13 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "test": "codeceptjs run --steps",
+  "test:smoke": "codeceptjs run --grep @smoke --steps",
+  "test:regression": "codeceptjs run --grep @regression --steps",
+  "test:parallel": "codeceptjs run-workers 4 --steps",
+  "test:headless": "HEADLESS=true codeceptjs run --steps",
+  "report:generate": "allure generate output/allure-results --clean",
+  "report:open": "allure open output/allure-report",
+  "report": "npm run report:generate && npm run report:open"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@codeceptjs/allure-legacy": "^1.0.2",
+    "@codeceptjs/configure": "^4.0.0-beta.4",
     "@faker-js/faker": "^10.5.0",
     "allure-commandline": "^2.43.0",
     "codeceptjs": "^4.0.8",
