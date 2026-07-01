@@ -3,7 +3,7 @@ require('dotenv').config();
 const { setHeadlessWhen } = require('@codeceptjs/configure');
 
 // Run headless in CI environment
-//setHeadlessWhen(process.env.CI);
+setHeadlessWhen(process.env.CI);
 
 /** @type {CodeceptJS.MainConfig} */
 exports.config = {
@@ -19,7 +19,7 @@ exports.config = {
     Playwright: {
       browser: process.env.BROWSER || 'chromium',
       url: process.env.BASE_URL || 'https://www.google.com',
-      show: 'true',
+      show: process.env.HEADLESS !== 'true',
       windowSize: '1920x1080',
       waitForNavigation: 'networkidle',
       timeout: 60000,
